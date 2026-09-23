@@ -52,7 +52,7 @@ handle addDie: aDie.
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'arithmetic' }
 DieHandle >> sumWithHandle: aDieHandle [
 	| handle |
 	handle := self class new.
