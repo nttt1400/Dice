@@ -8,6 +8,11 @@ Class {
 	#package : 'Dice'
 }
 
+{ #category : 'arithmetic' }
+Die >> + aDicable [
+^ aDicable sumWithDie: self
+]
+
 { #category : 'accessing' }
 Die >> faces [ 
 	^ faces
@@ -35,4 +40,21 @@ Die >> printOn: aStream [
 { #category : 'as yet unclassified' }
 Die >> roll [
 	^ faces atRandom 
+]
+
+{ #category : 'arithmetic' }
+Die >> sumWithDie: aDie [
+^ DieHandle new
+addDie: self;
+addDie: aDie; 
+yourself
+]
+
+{ #category : 'arithmetic' }
+Die >> sumWithHandle: aDieHandle [
+	| handle |
+	handle := DieHandle new.
+	aDieHandle dice do: [ :each | handle addDie: each ].
+	handle addDie: self.
+	^ handle
 ]
